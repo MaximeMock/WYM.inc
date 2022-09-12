@@ -41,7 +41,7 @@ def contact():
 		
 		#on enregistre dans un fichier .csv
 		input_var = [['name', 'mail', 'commentaire'],[username, usermail, usercomment]]
-		with open ('/data/contact.csv','a',newline = '') as csvfile:
+		with open ('contact.csv','a',newline = '') as csvfile:
     			my_writer = csv.writer(csvfile, delimiter = ' ')
     			my_writer.writerows(input_var)
     			
