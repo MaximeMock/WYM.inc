@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  nom_du_docker_1:
+ 
+    build:  ./path/Dockerfile # build from Dockerfile
+  
+    ports:
+     - 8000:5000
+    volumes:
+     - ./hello_flask:/hello_flask
+     link:
+     - docker_externe
+     
+     
+  nom_du_docker_2:
+        image: image_name        #image déjà build en local
+        port:
+        - 888:888
+        
+   docker_externe:
+     image: username/dockerhub # repo dockerhub par exemple
+     port:
+     - 666:666
+     volume:
+     - './path_ext:./path_docker'
