@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 from model_utils import predict
+from db_utils import *
 import csv
 
 app = Flask(__name__)
