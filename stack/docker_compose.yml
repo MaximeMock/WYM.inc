@@ -4,7 +4,7 @@ services:
     ports:
      - 8000:5000
     volumes:
-     - ./hello_flask:/hello_flask
+     - ./../web-app/web_app:/app
     depends_on:
      - BDD
      - Model_ML
@@ -13,7 +13,7 @@ services:
   BDD:
     image:  postgres       #image déjà build
     ports:
-     - 5432:5432
+     - 5431:5432
     environment:
      - POSTGRES_USER=wym_admin
      - POSTGRES_PASSWORD=admin

@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-<body>
-<!--<body bgcolor=”#800000"> 
-    <CENTER><img src="https://i.pinimg.com/originals/4a/a5/d2/4aa5d2217688d2d130b2f83b61a6cade.jpg" alt="" width = 500 height = 300>!-->
-    <p style="color:black; font-family:Arial; font-size: 45px">Texte résumé:</p>
-    <p style="color:black; font-family:Arial; font-size: 45px">{{ text_resume }}</p>
+<style>
+body {background-color:#E8AA8C}
+#text {color:#5E616A;
+font-size:300%;
+font-weight:bold;
+}
 
-    <footer>
-		<p>---</p>
-		<p>
-		retour page acceuil <a href="/home">home</a>
+#merci {font-size:150%;
+font-weight:bold;}
+</style>
+<body><font face='FreeSans'>
+
+    <CENTER><img id=head src="./../static/image/facebook_cover_photo_2.png"width="820px" height="312px">
+    <p id=text>Voici ton résumé:</p>
+    <p style="color:black; font-family:Arial; font-size: 45px">{{ text_resume }}</p>
+    
+    
+    
+    <p id= merci>Merci pour ta confiance !</p>
+    <br>
+    <br>
+</footer>
+<text id='top'>Ce site a été réalisé par Mathieu V., Thomas G., Maxime M., tous les trois étudiants au </text><a href="https://le-campus-numerique.fr/">Campus Numérique</a><texte>, organisme de formation d'élite proposant des parcours définis spécialement pour des publics ciblés leur permettant d'otenir des compétences dans le milieux du numérique sur des thématiques ou l'offre est toujours moins abondante que la demande</text>
 		<br>
-		A propos de ce site : <a href="/about">About</a>
+		<br>
+		<text>2022</text>
+		<text><br>Tous droits reservés</text>
+		<p>
+		<a href="/home">Accueil</a>
+		<br>
+		<a href="/about">A propos de nous</a>
 		</p>
-	</footer>
-</body>
+		</footer>
+</body></CENTER></font>
 </html>
