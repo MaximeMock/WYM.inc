@@ -1,40 +1,60 @@
 <html>
-	<body>		
-		<h1>Nous contacter</h1>
-		
-		<p>formulaire de contact</p>
+<style>
+body {background-color:#E8AA8C}
+h2 {color:#5E616A;
+	font-weight:bold}
+div {font-style:italic}
+input {display: table-cell;
+border: 1px solid #5E616A;
+}
+textarea {display:;
+border: 1px solid #5E616A;
+line-height: 20px;
+padding: 10px}
+</style>
 
-
+	<body><font face='FreeSans'><CENTER>
+	<h1><img id=head src="./../static/image/facebook_cover_photo_2.png"width="820px" height="312px"></h1>		
+		<h2>Pour nous contacter remplis le formulaire ci dessous :</h2>
 		<form action="/contact" method="post">
 			<div>
-				<label for="name">votre nom d'utilisateur :</label>
+				<label id=nom for="name" required="required">Nom :</label>
 				<input type="text" id="name" name="user_name">
 		    	</div>
-		    	
+		    	<br>
 		    	<div>
-				<label for="mail">Votre e-mail&nbsp;:</label>
+				<label id=mail for="mail" required="required">E-mail :</label>
 				<input type="email" id="mail" name="user_mail">
 		    	</div>
-		    	
+		    	<br>
 		    	<div>
-				<label for="msg">Votre message :</label>
-				<textarea id="msg" name="user_message"></textarea>
+				<label id=telephone for="mail" required="optional">Téléphone :</label>
+				<input type="email" id="mail" name="user_mail">
 		    	</div>
-		    	
+		    	<br>
+		    	<div>
+				<label for="msg" required="required">Ton message :</label>
+				<textarea id="msg" name="user_message"cols=28></textarea>
+		    	</div>
+		    	<br>
 		   	<div class="button">
-        			<button type="submit">Envoyer le message</button>
+        			<button type="submit">Soumettre ton message</button>
         		</div>
 		</form>
 
 
 		<footer>
-		<p>---</p>
-		<p>
-		retour page acceuil <a href="/home">home</a>
+				<text id='top'>Ce site a été réalisé par Mathieu V., Thomas G., Maxime M., tous les trois étudiants au </text><a href="https://le-campus-numerique.fr/">Campus Numérique</a><texte>, organisme de formation d'élite proposant des parcours définis spécialement pour des publics ciblés leur permettant d'otenir des compétences dans le milieux du numérique sur des thématiques ou l'offre est toujours moins abondante que la demande</text>
 		<br>
-		A propos de ce site : <a href="/about">About</a>
+		<br>
+		<text>2022</text>
+		<text><br>Tous droits reservés</text>
+		<p>
+		<a href="/home">Accueil</a>
+		<br>
+		<a href="/about">A propos de nous</a>
 		</p>
 		</footer>
 
-	</body>
+	</body></font></CENTER>
 </html>

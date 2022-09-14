@@ -1,23 +1,84 @@
 <html>
-	<body>
+<style>
+body {background-color:#E8AA8C; padding:50px}
+#gauche.button{
+	background:url(img/button.gif);
+	background-color:white;
+	display:block;
+	color:#5E616A;
+	font-weight:bold;
+	line-height:45px;
+	text-decoration:None;
+	border: 2px solid #000;
+	border-radius:0.3rem;
+	width:17rem;
+	position: relative;
+	display: inline-block;
+	border-top-left-radius: 1em 40%;
+	text-align:center;
+}
+#gauche:hover.button{
+		color:#E8AA8C;
+		background-color:#5E616A;}
+		
+#milieu.button{
+	background:url(img/button.gif);
+	display:block;
+	color:#5E616A;
+	font-weight:bold;
+	line-height:45px;
+	text-decoration:None;
+	border: 2px solid #000;
+	border-radius:0.3rem;
+	width:17rem;
+	position: relative;
+	display: inline-block;
+	text-align:center;
+	background-color:white;
+}
+#milieu:hover.button{
+		color:#E8AA8C;
+		background-color:#5E616A;}
+
+#droite.button{
+	background:url(img/button.gif);
+	display:block;
+	color:#5E616A;
+	font-weight:bold;
+	line-height:45px;
+	text-decoration:None;
+	border: 2px solid #000;
+	border-radius:0.3rem;
+	width:17rem;
+	position: relative;
+	display: inline-block;
+	border-top-right-radius: 1em 40%;
+	text-align:center;
+	background-color:white;
+}
+#droite:hover.button{
+		color:#E8AA8C;
+		background-color:#5E616A;}	
+p {font-size:18px}	
+
+</style>
+	<body><font face='FreeSans'>
 		<link rel="stylesheet" href="/static/style/style.css">
 		
-		<h1>HOME</h1>
-		
-		bienvenue sur la page HOME
-		
-		
-		<p>tester le model de ML : <a href="/model"> resumer un texte </a>
-		</p>
-		
-		<footer>
-		<p>---</p>
+		<CENTER>
+		<h1><img src="./../static/image/facebook_cover_photo_2.png"width="820px" height="312px"></h1>
+
+		<CENTER><a id= gauche href="/about" class="button"><span class="add">A propos de nous</span></a>
+		<a id = milieu href="/model" class="button"><span class="add">Resumer un texte</span></a>
+		<a id = droite href="/contact" class="button"><span class="add">Nous contacter</span></a></CENTER>
+
 		<p>
-		Nous contacter : <a href="/contact"> contact </a> !
+		WYM et toute son équipe de developpeur est heureuse de t'accueillir sur son service de résumé en ligne.
 		<br>
-		A propos de ce site : <a href="/about">About</a>
-		</p>
-		</footer>
-		
-	</body>
+		Ici grâce à notre model pré-entrainé tu peux résumer n'importe quel texte en anglais.
+		<br>
+		Fini les devoirs d'anglais, les publications incompréhensibles, les rapports des collègues internationaux.
+		</p></CENTER>
+			
+	</body></font>
 </html>

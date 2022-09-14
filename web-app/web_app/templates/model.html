@@ -1,30 +1,42 @@
 <html>
-	<body>		
-		<h1>Machine learning</h1>
+<style>
+body {background-color:#E8AA8C}
+#msg {	color:#5E616A;
+	border: 2px solid #5E616A;
+	}	
+#head {font-size:200%;
+	font-weight:bold}	
+</style>
+	<body><font face='FreeSans'>		
+		<h1><CENTER><img id=head src="./../static/image/facebook_cover_photo_2.png"width="820px" height="312px"></h1>
 		
-		<p>Modele pour resumer un texte</p>
+	<CENTER><p id=head>Ici vous pouvez résumé un texte en anglais</p>
 
 
 		<form action="/summary" method="post">		    	
 			<div>
-			<label for="msg">Votre message :</label>
-			<textarea id="msg" name="texte_a_resumer"></textarea>
+			<textarea id="msg" name="texte_a_resumer" rows= 6 cols=110>Votre texte ici : </textarea>
 			</div>
+			<br>
 	 
 		   <div class="button">
-				<button type="submit">resumer le texte</button>
+				<button type="submit">Soumission</button>
 			</div>
-		</form>
+		</form></CENTER>
 
 
-		<footer>
-		<p>---</p>
-		<p>
-		retour page acceuil <a href="/home">home</a>
+		<CENTER><footer>
+				<text id='top'>Ce site a été réalisé par Mathieu V., Thomas G., Maxime M., tous les trois étudiants au </text><a href="https://le-campus-numerique.fr/">Campus Numérique</a><texte>, organisme de formation d'élite proposant des parcours définis spécialement pour des publics ciblés leur permettant d'otenir des compétences dans le milieux du numérique sur des thématiques ou l'offre est toujours moins abondante que la demande</text>
 		<br>
-		A propos de ce site : <a href="/about">About</a>
+		<br>
+		<text>2022</text>
+		<text><br>Tous droits reservés</text>
+		<p>
+		<a href="/home">Accueil</a>
+		<br>
+		<a href="/about">A propos de nous</a>
 		</p>
-		</footer>
+		</footer></CENTER>
 
-	</body>
+	</body></font>	
 </html>
