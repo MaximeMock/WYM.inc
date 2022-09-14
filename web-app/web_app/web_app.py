@@ -82,7 +82,9 @@ def summary(summary = None):
 	else:
 		return render_template('summary.html', text_resume = '') 
 	
-
+@app.route("/contacted", methods=['GET', 'POST'])
+def contacted():
+	return render_template('contacted.html')
 #------
 
 def main():

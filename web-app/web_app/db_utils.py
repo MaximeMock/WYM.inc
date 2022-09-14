@@ -18,6 +18,16 @@ class User(Base):
      def __repr__(self):
          return f"User(id= {self._id!r}, date={self.date!r}, name={self.name!r}, mail={self.mail!r}, commentaire={self.commentaire!r})"
 
+class ModelStats(base):
+    __tablename__ = 'statistics'
+
+    id = Column(Integer, primary_key=True) # autoincrements by default
+    date = Column(DateTime, default=datetime.datetime.utcnow)
+    textLen = Column(Integer)
+    wordFreq = Column(String)
+    duration = Column(Float)
+    n_cara = Column(Integer)
+    
 #engine = create_engine('postgresql+psycopg2://wym_admin:admin@127.0.0.1:5431/wym_admin', echo=True)
 #Base.metadata.create_all(engine)
 #Session = sessionmaker(bind=engine)
