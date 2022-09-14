@@ -7,12 +7,9 @@ authors = ["Maxime <maxime.mock@le-campus-numerique.fr>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 Flask = "^2.2.2"
-<<<<<<< HEAD
 SQLAlchemy-Utils = "^0.38.3"
 psycopg2-binary = "^2.9.3"
-=======
 requests = "^2.28.1"
->>>>>>> 691c7fef14e519e3b1fe4eb59d8271be3765079d
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

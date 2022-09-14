@@ -1,26 +1,26 @@
-version: '2'
-
 services:
-  nom_du_docker_1:
- 
-    build:  ./path/Dockerfile # build from Dockerfile
-  
+  web-app:
+    build:  ./web-app/ # build from Dockerfile  
     ports:
      - 8000:5000
     volumes:
      - ./hello_flask:/hello_flask
-     link:
-     - docker_externe
+    depends_on:
+     - BDD
+     - Model_ML
      
      
-  nom_du_docker_2:
-        image: image_name        #image déjà build en local
-        port:
-        - 888:888
+  BDD:
+    image:  postgres       #image déjà build
+    ports:
+     - 5432:5432
+    environment:
+     - POSTGRES_USER=wym_admin
+     - POSTGRES_PASSWORD=admin
+     
         
-   docker_externe:
-     image: username/dockerhub # repo dockerhub par exemple
-     port:
-     - 666:666
-     volume:
-     - './path_ext:./path_docker'
+  Model_ML:
+    image:  codait/max-text-summarizer # repo dockerhub par exemple
+    ports:
+     - 5000:5000
+     
