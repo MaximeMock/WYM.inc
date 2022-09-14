@@ -44,11 +44,15 @@ def contact():
 		usermail = request.values.get('user_mail')
 		usercomment = request.values.get('user_message')
 		
+		db = DB(port='5432', log='wym_admin', password='admin', nom_DB='wym_admin')
+		db.create_connection()
+		db.init_bdd()
+		db.recup_user(usercomment, usermail, usercomment)
 		#on enregistre dans un fichier .csv
-		input_var = [['name', 'mail', 'commentaire'],[username, usermail, usercomment]]
-		with open ('contact.csv','a',newline = '') as csvfile:
-    			my_writer = csv.writer(csvfile, delimiter = ' ')
-    			my_writer.writerows(input_var)
+		#input_var = [['name', 'mail', 'commentaire'],[username, usermail, usercomment]]
+		#with open ('contact.csv','a',newline = '') as csvfile:
+    	#		my_writer = csv.writer(csvfile, delimiter = ' ')
+    	#		my_writer.writerows(input_var)
     			
     		#renvoit
 		return render_template('contact.html')
