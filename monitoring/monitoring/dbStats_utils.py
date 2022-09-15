@@ -40,7 +40,7 @@ class DB_stats:#(port:str, log:str, password:str, nom_DB:str):
 		self.log = log 
 		self.password = password
 		self.nom_DB = nom_DB
-		self.path = f'postgresql+psycopg2://{log}:{password}@0.0.0.0:{port}/{nom_DB}'
+		self.path = f'postgresql+psycopg2://{log}:{password}@BDD:{port}/{nom_DB}'
 		self.engine = False
 	
 	def create_connection(self):

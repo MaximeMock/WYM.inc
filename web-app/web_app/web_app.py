@@ -60,7 +60,16 @@ def summary(summary = None):
 		db = DB(port='5432', log='wym_admin', password='admin', nom_DB='wym_admin')
 		db.create_connection()
 		db.init_bdd()
-		db.recup_stats(text, text_resume, 1, 1, 1, 1, 1, 1, 1, 1)
+		db_func = dbs_utils()
+		nb_mot_E = db_func.nb_mot(text)
+		nb_mot_S = db_func.nb_mot(text_resume)
+		#frq_mot_E = db_func.frq_mot(text)
+		#frq_mot_S = db_func.frq_mot(text_resume)
+		nb_carac_E = db_func.nb_carac(text)
+		nb_carac_S = db_func.nb_carac(text_resume)
+		diff_mot = db_func.dif_mot(text, text_resume)[0]
+		diff_carac = db_func.dif_carac(text, text_resume)[0]
+		db.recup_stats(text, text_resume, nb_mot_E, 1, nb_carac_E, nb_mot_S, 1, nb_carac_S, diff_mot, diff_carac)
 
 		#enregistrement
 		#input_var = [['commentaire'],['texte_a_resumer']]
