@@ -38,16 +38,6 @@ def about():
 
 @app.route("/contact",  methods=['GET', 'POST'])
 def contact():
-	if request.method == 'POST':
-		#on recupere les variables
-		username = request.values.get('user_name')
-		usermail = request.values.get('user_mail')
-		usercomment = request.values.get('user_message')
-		
-		db = DB(port='5432', log='wym_admin', password='admin', nom_DB='wym_admin')
-		db.create_connection()
-		db.init_bdd()
-		db.recup_user(usercomment, usermail, usercomment)
 		#on enregistre dans un fichier .csv
 		#input_var = [['name', 'mail', 'commentaire'],[username, usermail, usercomment]]
 		#with open ('contact.csv','a',newline = '') as csvfile:
@@ -56,8 +46,6 @@ def contact():
     			
     		#renvoit
 		return render_template('contact.html')
-	else:
-		return render_template('contact.html')	
 
 @app.route("/model")
 def form():
@@ -84,7 +72,19 @@ def summary(summary = None):
 	
 @app.route("/contacted", methods=['GET', 'POST'])
 def contacted():
-	return render_template('contacted.html')
+	if request.method == 'POST':
+		#on recupere les variables
+		username = request.values.get('user_name')
+		usermail = request.values.get('user_mail')
+		usercomment = request.values.get('user_message')
+		
+		db = DB(port='5432', log='wym_admin', password='admin', nom_DB='wym_admin')
+		db.create_connection()
+		db.init_bdd()
+		db.recup_user(usercomment, usermail, usercomment)
+		return render_template('contacted.html')
+	else:
+		return render_template('contacted.html')	
 #------
 
 def main():
