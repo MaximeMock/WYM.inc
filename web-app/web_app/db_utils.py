@@ -18,11 +18,11 @@ class User(Base):
      def __repr__(self):
          return f"User(id= {self._id!r}, date={self.date!r}, name={self.name!r}, mail={self.mail!r}, commentaire={self.commentaire!r})"
 
-class ModelStats(base):
+class ModelStats(Base):
     __tablename__ = 'statistics'
 
     id = Column(Integer, primary_key=True) # autoincrements by default
-    date = Column(DateTime, default=datetime.datetime.utcnow)
+    date = Column(DateTime, default=datetime.utcnow)
     textLen = Column(Integer)
     wordFreq = Column(String)
     duration = Column(Float)
