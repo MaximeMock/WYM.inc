@@ -57,6 +57,10 @@ def summary(summary = None):
 		#recuperation variables
 		text = request.values.get('texte_a_resumer')
 		text_resume = predict(text)
+		db = DB(port='5432', log='wym_admin', password='admin', nom_DB='wym_admin')
+		db.create_connection()
+		db.init_bdd()
+		db.recup_stats(text, text_resume, 1, 1, 1, 1, 1, 1, 1, 1)
 
 		#enregistrement
 		#input_var = [['commentaire'],['texte_a_resumer']]
