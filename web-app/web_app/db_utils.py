@@ -113,7 +113,41 @@ class DB:#(port:str, log:str, password:str, nom_DB):
 		return statX
 		
 		
+class dbs_utils():
+ 	
+	def nb_mot(self, text):
+		nb_mot = len(text.split())
+		return nb_mot
 		
+	
+	def frq_mot(self, text):
+		liste_mot = text.split()
+		str2 = []
+		dic_frq={}
+		for i in liste_mot:             
+			if i not in str2:
+				str2.append(i) 
+		for i in range(0, len(str2)):
+			dic_frq[str2[i]] = liste_mot.count(str2[i])
+		return list(dic_frq.keys()), list(dic_frq.values())
+
+	
+	
+	def nb_carac(self, text):
+		nb_carac = len(text)
+		return nb_carac
+		
+		
+	def dif_mot(self, texte_E, texte_S):
+		dif_mot = self.nb_mot(texte_E) - self.nb_mot(texte_S)
+		taux_reduc_mot = (1 - (self.nb_mot(texte_S) / self.nb_mot(texte_E))) * 100
+		return dif_mot, taux_reduc_mot
+		
+		
+	def dif_carac(self, texte_E, texte_S):
+		dif_carac = self.nb_carac(texte_E) - self.nb_carac(texte_S)
+		taux_reduc_carac = (1 - (self.nb_carac(texte_S) / self.nb_carac(texte_E))) * 100
+		return dif_carac, taux_reduc_carac		
 		
 		
 		

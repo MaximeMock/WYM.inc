@@ -24,3 +24,10 @@ services:
     ports:
      - 5000:5000
      
+  streamlit_app:
+    build: ./monitoring/
+    ports:
+     - 8501:8501
+    depends_on:
+     - web-app
+     
