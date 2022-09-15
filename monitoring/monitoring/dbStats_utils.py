@@ -2,21 +2,10 @@ from sqlalchemy_utils import *
 from sqlalchemy.orm import *
 from sqlalchemy import *
 from datetime import datetime 
+
 #-----
 
 Base = declarative_base()
-
-class User(Base):
-     __tablename__ = "wym_admin"
-
-     _id = Column(Integer, primary_key=True)
-     date = Column(String)
-     name = Column(String)
-     mail = Column(String)
-     commentaire = Column(String)
-
-     def __repr__(self):
-         return f"User(id= {self._id!r}, date={self.date!r}, name={self.name!r}, mail={self.mail!r}, commentaire={self.commentaire!r})"
 
 class Stats(Base):
     __tablename__ = 'statistics'
@@ -40,22 +29,18 @@ class Stats(Base):
     
     def __repr__(self):
     	return f"Stats(id_stat = {self._id!r}, date={self.date!r}, text_input={self.text_input!r}, text_output={self.text_output!r}, nb_mot_E={self.nb_mot_E!r}, frq_mot_E={self.frq_mot_E!r}, nb_carac_E={self.nb_carac_E!r}, nb_mot_S={self.nb_mot_S!r}, frq_mot_S={self.frq_mot_S!r}, nb_carac_S={self.nb_carac_S!r}, diff_mot={self.diff_mot!r}, diff_carac={self.diff_carac!r}"
-    
-#engine = create_engine('postgresql+psycopg2://wym_admin:admin@127.0.0.1:5431/wym_admin', echo=True)
-#Base.metadata.create_all(engine)
-#Session = sessionmaker(bind=engine)
-#session = Session()
-#session.add(userX)
-#session.commit()
+#-----		
+		
+class DB_stats:#(port:str, log:str, password:str, nom_DB:str):
 
-class DB:#(port:str, log:str, password:str, nom_DB):
+#connexion et verification
 
-	def __init__(self, port='5432', log='wym_admin', password='admin', nom_DB='wym_admin'):
-		self.port =port
-		self.log =log 
-		self.password =password
-		self.nom_DB =nom_DB
-		self.path = f'postgresql+psycopg2://{log}:{password}@BDD:{port}/{nom_DB}'
+	def __init__(self, port='5432', log='wym_admin', password='admin', nom_DB='wym_stats'):
+		self.port = port
+		self.log = log 
+		self.password = password
+		self.nom_DB = nom_DB
+		self.path = f'postgresql+psycopg2://{log}:{password}@0.0.0.0:{port}/{nom_DB}'
 		self.engine = False
 	
 	def create_connection(self):
@@ -72,7 +57,6 @@ class DB:#(port:str, log:str, password:str, nom_DB):
 	def check_tables(self):
 		return inspect(self.engine).has_table(self.nom_DB)
 
-
 	def init_bdd(self):
 		if self.engine == False:
 			create_database(self.path)
@@ -83,25 +67,15 @@ class DB:#(port:str, log:str, password:str, nom_DB):
 		session = Session()
 		return session
 
-	def recup_user(self, comme, mail, name):
-		now = datetime.now()
-		current_time = now.strftime("%Y/%m/%d %H:%M:%S")
-		Base.metadata.create_all(self.engine)
-		Session = sessionmaker(bind=self.engine)
-		session = Session()
-		user_id = session.query(User._id).count()+1
-		userX= User(_id=user_id, date=current_time, name=name, mail=mail, commentaire=comme)
-		session.add(userX)
-		session.commit()
-		return userX
-		
+#génération
+
 	def recup_stats(self, text_input, text_output, nb_mot_E, frq_mot_E, nb_carac_E, nb_mot_S, frq_mot_S, nb_carac_S, diff_mot, diff_carac):
 		
 		Base.metadata.create_all(self.engine)
 		Session = sessionmaker(bind=self.engine)
 		session = Session()
 	
-		stats_id = session.query(Stats.id_stat).count()+1
+		stats_id = session.query(Stats._id).count()+1
 		now = datetime.now()
 		current_time = now.strftime("%Y/%m/%d %H:%M:%S")
 		
@@ -110,23 +84,10 @@ class DB:#(port:str, log:str, password:str, nom_DB):
 		session.add(statX)
 		session.commit()
 		
-		return statX
+		return statX		
 		
 		
+	
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
